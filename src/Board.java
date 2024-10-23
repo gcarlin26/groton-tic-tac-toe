@@ -56,7 +56,7 @@ public class Board {
     public Square winner(){
         //Check rows and columns by iteration
         for(int row = 0; row<SIZE;row++){
-            Square start = board[row][0];
+            Square start = board[0][row];
             if(start==Square.EMPTY)break;
             int col = 1;
             while(col<SIZE && board[col][row]==start)col++;
@@ -125,7 +125,9 @@ public class Board {
     }
 
     public static void main(String[] args){
-        new Board();
+        //new Board();
+        Square[][] b = {{Square.X,Square.O,Square.X},{Square.O,Square.O,Square.X},{Square.O,Square.X,Square.X}};
+        System.out.print(new Board(Square.O,b).winner()==Square.X);
     }
 
 }
